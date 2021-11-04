@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it { should have_many(:books).dependent(:destroy) }
+    it { should have_many(:libraries) }
+    it { should have_many(:library_additions)
+      .through(:libraries)
+      .source(:book)
+    }
+  end
 end
