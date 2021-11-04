@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       put "remove", to: "books#library"
     end
   end
+  resources :libraries, only: [:index]
 
   root to: 'books#index'
 end
