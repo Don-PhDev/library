@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :libraries, only: [:index]
+  resources :pricing,   only: [:index]
 
   root to: 'books#index'
 end
