@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :libraries
   has_many :library_additions, through: :libraries, source: :book
 
+  def name
+    "#{first_name} #{last_name}".split.map(&:capitalize).join(" ")
+  end
+
   def subscribed?
     stripe_subscription_id?
   end
